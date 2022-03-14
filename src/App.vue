@@ -5,7 +5,7 @@
 </script>
 
 <template>
- <div>导航栏<router-link to="/">frank</router-link> <router-link to="/x">frank2</router-link>      </div>
+ <div>导航栏<router-link to="/">frank </router-link> <router-link to="/doc">frank2</router-link>      </div>
  <hr>
 <router-view></router-view>
 </template>
