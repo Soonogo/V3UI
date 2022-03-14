@@ -1,34 +1,17 @@
 <script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from './components/HelloWorld.vue'
-import Frank from './components/Frank.vue'
-//创建一个组件
-const App = {
-  // 在组件中使用 <script setup>
-  components: {
-    HelloWorld,
-    Frank
-  },
-  // 在组件中使用 <template>
-  template: `
-    <div>123
-      <h1>Hello World</h1>
-      <HelloWorld />
-      <Frank />
-    </div>
-  `
-}
+
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
-  <Frank  />
-
+ <div>导航栏<router-link to="/">frank</router-link> <router-link to="/x">frank2</router-link>      </div>
+ <hr>
+<router-view></router-view>
 </template>
 
 <style>
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
