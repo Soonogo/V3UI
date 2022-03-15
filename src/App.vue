@@ -1,6 +1,12 @@
 <script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
+
+import { provide } from "@vue/runtime-core";
+import { ref } from "vue";
+
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
+const menuVisible = ref(false);
+provide('menuVisible',menuVisible);
 </script>
 
 <template>

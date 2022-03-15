@@ -1,5 +1,5 @@
 <template>
-  <div class="topnav">
+  <div class="topnav" @click="toggle">
     <div class="logo">LOGO</div>
     <ul class="menu">
       <li>菜单1</li>
@@ -7,7 +7,14 @@
     </ul>
   </div>
 </template>
-<script lang="ts">
+<script setup lang="ts">
+import { inject, Ref } from "@vue/runtime-core";
+
+const menuVisible = inject<Ref<boolean>>('menuVisible');
+const toggle = ()=>{
+    menuVisible.value = !menuVisible?.value;
+    return toggle
+} 
 
 </script>
 <style lang="scss" scoped>
