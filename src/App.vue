@@ -5,7 +5,8 @@ import { provide } from "@vue/runtime-core";
 import { ref } from "vue";
 
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-const menuVisible = ref(false);
+const width = document.documentElement.clientWidth
+const menuVisible = ref(width<=500?false:true);
 provide('menuVisible',menuVisible);
 </script>
 
@@ -14,7 +15,9 @@ provide('menuVisible',menuVisible);
 </template>
 
 <style>
-
+*{
+  transition: all 250ms;
+}
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
