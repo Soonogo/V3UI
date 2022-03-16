@@ -12,5 +12,5 @@ export default {
     const y = ref(false)
     return {y}
   }
-}
+} 
 </script>
