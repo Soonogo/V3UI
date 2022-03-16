@@ -1,22 +1,20 @@
 <template>
-  <button @click="toggle" >
-     <span ></span>
-  
-   </button> 
+  <button @click="toggle" :class="{checked:value}"> <span></span> </button>
 </template>
-<script lang="ts" setup>
-import {ref,defineEmits,} from 'vue' 
-const props = defineProps({
-  value:Boolean
-})
-const emit = defineEmits([
-  'input',
-
-])
-  const toggle = ()=>{
-    emit('input',!props.value)
-    console.log(props.value)
-  }
+<script lang="ts">
+import { ref } from 'vue'
+export default {
+  props: {
+    value: Boolean
+  },
+  setup(props, context){
+    const toggle = ()=>{
+      context.emit('update:value', !props.value)
+      // this.$emit()
+    }
+    return {toggle}
+  } 
+}
 </script>
 <style lang="scss" scoped>
   $h: 22px;
