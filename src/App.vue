@@ -21,9 +21,7 @@ router.afterEach(()=>{
 </template>
 
 <style>
-*{
-  transition: all 250ms;
-}
+
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

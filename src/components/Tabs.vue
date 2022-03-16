@@ -1,3 +1,3 @@
 <template>
-    <div>button</div>
+    <div>tabs</div>
 </template>

@@ -16,6 +16,7 @@
 import Topnav from '../components/Topnav.vue'
 </script>
 <style lang="scss" scoped>
+@use "sass:math";
 .banner {
   padding: 100px 0;
   display: flex;
@@ -30,9 +31,10 @@ import Topnav from '../components/Topnav.vue'
       background: #fff;
       display: inline-block;
       $h: 28px;
+      $h2: span math.div($h,2);
       height: $h;
       line-height: $h;
-      border-radius: $h/2;
+      border-radius: $h2;
       padding: 0 8px;
     }
   }
