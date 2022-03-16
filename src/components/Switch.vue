@@ -6,3 +6,6 @@
 import Switch from '../lib/switch.vue'
 
 </script>
+<style>
+
+</style>
