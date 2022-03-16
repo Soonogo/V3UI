@@ -1,12 +1,12 @@
 <template>
-  <button>
-     <span @click="toggle" :class="{checked}"></span>
+  <button @click="toggle" :class="{checked}">
+     <span ></span>
   
    </button> 
 </template>
 <script lang="ts" setup>
 import {ref} from 'vue' 
-  const checked = ref(false)
+  const checked = ref<boolean>(false)
   const toggle =()=>{
     checked.value = !checked.value
   }
@@ -30,6 +30,8 @@ import {ref} from 'vue'
     width: $h2;
     background:white;
     border-radius: 11px;
+    transition: all 250ms;
+
   } 
   button.checked{
     background: blue;
