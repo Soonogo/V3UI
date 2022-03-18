@@ -3,14 +3,8 @@
     <Switch v-model:value="y" />
   </div>
 </template>
-<script lang="ts" >
+<script lang="ts" setup>
 import Switch from '../lib/Switch1.vue'
 import { ref } from 'vue'
-export default {
-  components: {Switch},
-  setup(){
     const y = ref(false)
-    return {y}
-  }
-} 
 </script>

@@ -1,20 +1,19 @@
 <template>
   <button @click="toggle" :class="{checked:value}"> <span></span> </button>
 </template>
-<script lang="ts">
-import { ref } from 'vue'
-export default {
-  props: {
-    value: Boolean
+<script lang="ts" setup>
+  
+    const props = defineProps({
+  value: {
+    type: Boolean,
   },
-  setup(props, context){
+});
+    const emit = defineEmits(['update:value']);
     const toggle = ()=>{
-      context.emit('update:value', !props.value)
+      emit('update:value', !props.value)
+      console.log(1)
       // this.$emit()
     }
-    return {toggle}
-  } 
-}
 </script>
 <style lang="scss" scoped>
   $h: 22px;
