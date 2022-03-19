@@ -1,31 +1,33 @@
 <template>
-        <div class="gulu-dialog-overlay"></div>
-            <div class="gulu-dialog-wrapper">
-                <div class="gulu-dialog">
-
-                <header>
-                    <h1>标题</h1>
-
-                    <span class="gulu-dialog-close"></span>
-                </header>
-                <main>
-                    <p>内容1</p>
-                    <p>内容2</p>
-                    <p>内容3</p>
-                </main>
-                <footer>
-                    <Button level="main">OK</Button>
-                    <Button>Cancel</Button>
-                </footer>
-            </div>
-        </div>
-
-
-
-
+<template v-if="visiable">
+  <div class="gulu-dialog-overlay"></div>
+  <div class="gulu-dialog-wrapper">
+    <div class="gulu-dialog">
+      <header>
+        标题
+        <span class="gulu-dialog-close"></span>
+      </header>
+      <main>
+        <p>第一行字</p>
+        <p>第二行字</p>
+      </main>
+      <footer>
+        <Button level="main">OK</Button>
+        <Button>Cancel</Button>
+      </footer>
+    </div>
+  </div>
+</template>
 </template>
 <script lang="ts" setup>
 import Button from "./button1.vue"
+const props = defineProps({
+    visiable: {
+        type: Boolean,
+        default: false
+    },
+})
+
 </script>
 
 <style lang="scss">
