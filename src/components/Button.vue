@@ -1,6 +1,6 @@
 <template>
     <Button  >nihao</Button>
-    <Button  theme="button">nihao</Button>
+    <Button  theme="button">nihaonihaonihaonihaoni haonihaon haonihaon haonihaon haonihaonihaonihao</Button>
     <Button  theme="link">nihao</Button>
     <Button  theme="a">nihao</Button>
 </template>
