@@ -5,7 +5,7 @@
     <div class="gulu-dialog">
       <header>
         标题
-        <span class="gulu-dialog-close"></span>
+        <span @click="close" class="gulu-dialog-close"></span>
       </header>
       <main>
         <p>第一行字</p>
@@ -27,7 +27,12 @@ const props = defineProps({
         default: false
     },
 })
-
+const emits = defineEmits([
+   "update:visiable"
+])
+const close = ()=>{
+emits("update:visiable",false)
+}
 </script>
 
 <style lang="scss">

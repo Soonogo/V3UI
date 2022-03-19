@@ -1,6 +1,6 @@
 <template>
 <Button  @click="x">2222</Button>
-<Dialog :visiable="v"></Dialog>
+<Dialog v-model:visiable="v"></Dialog>
 
 </template>
 <script lang="ts" setup>
