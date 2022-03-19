@@ -3,11 +3,11 @@
 import {createWebHashHistory,createRouter} from 'vue-router'
 import Home from './views/home.vue'
 import Docs from './views/docs.vue'
-import Switch from './components/switch.vue'
-import Button from './components/button.vue'
-import Dialog from './components/dialog.vue'
-import Tabs from './components/tabs.vue'
-import DocView from './components/docView.vue'
+import Switch from './components/Switch.vue'
+import Button from './components/Button.vue'
+import Dialog from './components/Dialog.vue'
+import Tabs from './components/Tabs.vue'
+import DocView from './components/DocView.vue'
 
 const history = createWebHashHistory()
 export const router = createRouter({

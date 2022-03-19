@@ -1,5 +1,5 @@
 <template>
-  <button @click="toggle" :class="{checked:value}"> <span></span> </button>
+  <button @click="toggle1" :class="{checked:value}"> <span></span> </button>
 </template>
 <script lang="ts" setup>
   
@@ -9,9 +9,9 @@
   },
 });
     const emit = defineEmits(['update:value']);
-    const toggle = ()=>{
+    const toggle1 = ()=>{
       emit('update:value', !props.value)
-      console.log(1)
+      console.log(12345)
       // this.$emit()
     }
 </script>
