@@ -1,5 +1,8 @@
 <template>
-    <Button  @click="click" @mouseover="click" @focus="click">nihao</Button>
+    <Button  >nihao</Button>
+    <Button  theme="button">nihao</Button>
+    <Button  theme="link">nihao</Button>
+    <Button  theme="a">nihao</Button>
 </template>
 <script lang="ts" setup>
 import Button from '../lib/button1.vue'
