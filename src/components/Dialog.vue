@@ -1,6 +1,15 @@
 <template>
 <Button  @click="x">2222</Button>
-<Dialog v-model:visiable="v"  :closeOnclickOverLay="true" :ok="f1" :cancel="f2"></Dialog>
+<Dialog v-model:visiable="v"  :closeOnclickOverLay="true" :ok="f1" :cancel="f2">
+    <template v-slot:title>
+        <div>李白</div>
+    </template>
+    <template v-slot:content>
+        <div>事了拂衣去</div>
+        <div>深藏身与名</div>
+    </template>
+    
+</Dialog>
 
 </template>
 <script lang="ts" setup>

@@ -1,27 +1,36 @@
 <template>
 <template v-if="visiable">
+  <Teleport to="body">
+
   <div class="gulu-dialog-overlay" @click="onCloseOverLay"></div>
   <div class="gulu-dialog-wrapper">
     <div class="gulu-dialog">
       <header>
-        标题
+          <slot name="title"></slot>
         <span @click="close" class="gulu-dialog-close"></span>
       </header>
       <main>
-        <p>第一行字</p>
-        <p>第二行字</p>
+       <slot name="content"/>
       </main>
       <footer>
+       <slot/>
+
         <Button @click="ok" level="main">OK</Button>
         <Button @click="cancel">Cancel</Button>
       </footer>
     </div>
   </div>
+  </Teleport>
+
 </template>
 </template>
 <script lang="ts" setup>
 import Button from "./button1.vue"
 const props = defineProps({
+  title:{
+    type:String,
+    default:"标题a"
+  },
     visiable: {
         type: Boolean,
         default: false

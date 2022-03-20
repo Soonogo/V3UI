@@ -20,7 +20,7 @@ router.afterEach(()=>{
 <router-view></router-view>
 </template>
 
-<style>
+<style scoped>
 
 #app {
   -webkit-font-smoothing: antialiased;
