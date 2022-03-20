@@ -1,6 +1,6 @@
 <template>
 <template v-if="visiable">
-  <div class="gulu-dialog-overlay"></div>
+  <div class="gulu-dialog-overlay" @click="onCloseOverLay"></div>
   <div class="gulu-dialog-wrapper">
     <div class="gulu-dialog">
       <header>
@@ -12,8 +12,8 @@
         <p>第二行字</p>
       </main>
       <footer>
-        <Button level="main">OK</Button>
-        <Button>Cancel</Button>
+        <Button @click="ok" level="main">OK</Button>
+        <Button @click="cancel">Cancel</Button>
       </footer>
     </div>
   </div>
@@ -26,12 +26,38 @@ const props = defineProps({
         type: Boolean,
         default: false
     },
+    ok: {
+        type: Function,
+    },
+    cancel:{
+        type: Function,
+    },
+    closeOnclickOverLay: {
+        type: Boolean,
+        default: true
+    }
 })
 const emits = defineEmits([
-   "update:visiable"
+   "update:visiable","update:cancel"
 ])
+const ok = () => {
+      if (props.ok?.() !== false) {
+        close()
+      }else{
+        alert("not ok")
+      }
+    }
+const cancel = ()=>{
+  emits("update:cancel")
+  close()
+}
 const close = ()=>{
 emits("update:visiable",false)
+}
+const onCloseOverLay = ()=>{
+  if(props.closeOnclickOverLay){
+    close()
+  }
 }
 </script>
 
