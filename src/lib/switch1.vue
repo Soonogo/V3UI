@@ -22,6 +22,9 @@
   height: $h; width: $h * 2; border: none; background: #bfbfbf; border-radius: 11px; position: relative;
   > span {
     position: absolute; top: 2px; left: 2px; height: $h2; width: $h2; background: white; border-radius:9px; transition: all 250ms;
+    &.selected{
+      background-color: blue;
+    }
   }
   &.gulu-checked { background: #1890ff;
     > span { left: calc(100% - #{$h2} - 2px); }
