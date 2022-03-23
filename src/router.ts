@@ -6,7 +6,7 @@ import Docs from './views/docs.vue'
 import Switch from './components/Switch.vue'
 import Button from './components/Button.vue'
 import Dialog from './components/Dialog.vue'
-import Tabs from './components/Tabs.vue'
+import Tabs from './components/TabsView.vue'
 import DocView from './components/DocView.vue'
 
 const history = createWebHashHistory()
