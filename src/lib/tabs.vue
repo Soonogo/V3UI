@@ -57,11 +57,7 @@ slots?.forEach((tag)=>{
 const titles = slots?.map((tag)=>{
     return tag?.props?.title
 })
-const current = computed(()=>{
-  return slots?.find((tag)=>{
-    return tag.props.title===props.selected
-  })
-})
+
 
 
 const select = (title:string)=>{
