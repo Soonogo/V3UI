@@ -1,8 +1,8 @@
 <template>
 <div class="gulu-tabs">
-  <div class="gulu-tabs-nav">
-    <div class="gulu-tabs-nav-item" v-for="(t,index) in titles" @click="select(t)" :class="{selected: t=== selected}" :key="index">{{t}}</div>
-        <div class="gulu-tabs-nav-indicator"></div>
+  <div class="gulu-tabs-nav" ref="container">
+    <div class="gulu-tabs-nav-item"  v-for="(t,index) in titles" @click="select(t)" :class="{selected: t=== selected}" :ref="el=>{ if(t===selected) selectedItem=el}" :key="index">{{t}}</div>
+        <div class="gulu-tabs-nav-indicator" ref="indicator"></div>
   </div>
   <div class="gulu-tabs-content">
     <div class="gulu-tabs-content-item" :class="{selected: c?.props?.title === selected }" v-for="(c,index) in slots" :key="index">
@@ -16,7 +16,7 @@
 </template>
 <script setup lang="ts">
 import Tab from "./tab.vue"
-import { useSlots,computed} from 'vue'
+import { useSlots,computed, ref, onMounted, onUpdated, watchEffect} from 'vue'
 const props = defineProps({
   selected:{
     type:String,
@@ -26,6 +26,26 @@ const props = defineProps({
 const emits = defineEmits([
   "update:selected"
 ])
+const selectedItem = ref<HTMLDivElement>(null)
+const indicator = ref<HTMLDivElement>(null)
+const container = ref<HTMLDivElement>(null)
+const x =() => {
+      const {
+        width
+      } = selectedItem.value.getBoundingClientRect()
+      indicator.value.style.width = width + 'px'
+      const {
+        left: left1
+      } = container.value.getBoundingClientRect()
+      const {
+        left: left2
+      } = selectedItem.value.getBoundingClientRect()
+      const left = left2 - left1
+      indicator.value.style.left = left + 'px'
+    }
+    onMounted(x)
+    onUpdated(x)
+
 const slots = useSlots?.().default?.()
 slots?.forEach((tag)=>{
     if(tag.type!==Tab){
@@ -38,9 +58,9 @@ const titles = slots?.map((tag)=>{
     return tag?.props?.title
 })
 const current = computed(()=>{
-  return slots?.filter((tag)=>{
+  return slots?.find((tag)=>{
     return tag.props.title===props.selected
-  })[0]
+  })
 })
 
 
@@ -80,6 +100,7 @@ $border-color: #d9d9d9;
       left: 0;
       bottom: -1px;
       width: 100px;
+      transition: all 500ms;
     }
   }
   &-content {
