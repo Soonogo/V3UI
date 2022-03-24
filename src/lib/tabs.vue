@@ -29,7 +29,9 @@ const emits = defineEmits([
 const selectedItem = ref<HTMLDivElement>(null)
 const indicator = ref<HTMLDivElement>(null)
 const container = ref<HTMLDivElement>(null)
-const x =() => {
+      
+  onMounted(()=>{
+    watchEffect(()=>{
       const {
         width
       } = selectedItem.value.getBoundingClientRect()
@@ -42,9 +44,9 @@ const x =() => {
       } = selectedItem.value.getBoundingClientRect()
       const left = left2 - left1
       indicator.value.style.left = left + 'px'
-    }
-    onMounted(x)
-    onUpdated(x)
+    })
+  })
+
 
 const slots = useSlots?.().default?.()
 slots?.forEach((tag)=>{
