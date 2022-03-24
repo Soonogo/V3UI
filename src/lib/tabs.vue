@@ -1,16 +1,30 @@
 <template>
 <div class="gulu-tabs">
   <div class="gulu-tabs-nav">
-    <div class="gulu-tabs-nav-item" v-for="(t,index) in titles" :key="index">{{t}}</div>
+    <div class="gulu-tabs-nav-item" v-for="(t,index) in titles" @click="select(t)" :class="{selected: t=== selected}" :key="index">{{t}}</div>
   </div>
   <div class="gulu-tabs-content">
-    <component class="gulu-tabs-content-item" v-for="(c,index) in slots" :is="c" :key="index" />
+    <div class="gulu-tabs-content-item" :class="{selected: c?.props?.title === selected }" v-for="(c,index) in slots" :key="index">
+
+        <component :is="c"  />
+    </div>
+
+    <!-- <div class="gulu-tabs-nav-item" v-for="(t,index) in titles" @click="select(t)" :class="{selected: t=== selected}" :key="index">{{t}}</div> -->
   </div>
 </div>
 </template>
 <script setup lang="ts">
 import Tab from "./tab.vue"
-import { useSlots} from 'vue'
+import { useSlots,computed} from 'vue'
+const props = defineProps({
+  selected:{
+    type:String,
+  }
+})
+
+const emits = defineEmits([
+  "update:selected"
+])
 const slots = useSlots?.().default?.()
 slots?.forEach((tag)=>{
     if(tag.type!==Tab){
@@ -18,9 +32,20 @@ slots?.forEach((tag)=>{
     
     }
 })
+//ts-ignore
 const titles = slots?.map((tag)=>{
     return tag?.props?.title
 })
+const current = computed(()=>{
+  return slots?.filter((tag)=>{
+    return tag.props.title===props.selected
+  })[0]
+})
+
+
+const select = (title:string)=>{
+  emits("update:selected",title)
+}
 
 
 </script>
@@ -42,16 +67,19 @@ $border-color: #d9d9d9;
         margin-left: 0;
         
       }
-      &:active {
-          background: black;
-          z-index: 10;
-          border:1px solid red;
+      &.selected {
         color: $blue;
       }
     }
   }
   &-content {
     padding: 8px 0;
+    &-item {
+      display: none;
+      &.selected {
+        display: block;
+      }
+    }
   }
 }
 </style>
