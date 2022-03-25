@@ -3,12 +3,15 @@
   <div>
    <Topnav/>
     <div class="banner">
-      <h1>轱辘UI</h1>
-      <h2>一个厉害的 UI 框架</h2>
+      <div style="height:100px"></div>
+      <h1><strong>Sport UI</strong></h1>
+      <h2><i class="vue3">Vue3</i> & <i class="ts">TS</i> UI 框架</h2>
       <p class="actions">
         <a href="https://github.com/songenen">GitHub</a>
         <router-link to="/doc">开始</router-link>
       </p>
+      <div class="bg1"></div>
+      <div class="bg2"></div>
     </div>
   </div>
 </template>
@@ -17,18 +20,58 @@ import Topnav from '../components/Topnav.vue'
 </script>
 <style lang="scss" scoped>
 @use "sass:math";
+ .vue3 {
+    color: #33b32e;
+  }
+  .ts{
+    color: blue;
+  }
 .banner {
+  
   padding: 100px 0;
-  display: flex;
-  justify-content: center;
+    display: flex;
   align-items: center;
   flex-direction: column;
-  background: lightgreen;
+  height: 100vh;
+  position: relative;
+  @media(max-width: 1820px){
+    background: linear-gradient(139deg, rgba(255,255,255,1) 0%, rgba(156,171,255,1) 53%, rgba(44,55,255,1) 100%);
+  }
+  @media (max-width:576px){
+background: linear-gradient(133deg, rgba(255,255,255,1) 0%, rgba(156,201,255,1) 53%, rgba(44,219,255,1) 100%);
+
+  }
+
+  @media (min-width:1920px){
+ > .bg1{
+    left: 0;
+    top: 0vh;
+    position: absolute;
+    width: 50vw;
+    height: 100vh;
+  background:url(../y.svg) no-repeat ;
+  z-index: -1;
+
+  }
+  > .bg2{
+    right: 0;
+    top: 0vh;
+    position: absolute;
+    width: 50vw;
+    height: 100vh;
+  background:url(../bg.svg) no-repeat ;
+  z-index: -1;
+
+  }
+  }
+ 
+
   > .actions{
     padding: 20px 0;
     a {
       margin:0 8px;
-      background: #fff;
+      color: white;
+background: linear-gradient(139deg, rgba(142,222,255,1) 0%, rgba(0,142,255,1) 100%);
       display: inline-block;
       $h: 28px;
       $h2: span math.div($h,2);

@@ -12,10 +12,16 @@
     color: inherit;
     &:hover {
 
-      border-bottom: 1px solid;
+      border-bottom: 2px solid rgba(62, 78, 170, 0.692);
       cursor: pointer;
     }
   }
+   .icon {
+       width: 1em; height: 1em;
+       vertical-align: -0.15em;
+       fill: currentColor;
+       overflow: hidden;
+    }
   h1,h2,h3,h4,h5,h6{
     font-weight: normal;
   }

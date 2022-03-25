@@ -1,16 +1,28 @@
 <template>
   <div class="topnav" >
-    <div class="logo" @click="toggle">LOGO</div>
+    <div class="logo" @click="toggle">
+       <svg class="icon" >
+        <use xlink:href="#icon-sport"></use>
+    </svg>
+    </div>
     <ul class="menu">
-      <li>菜单1</li>
-      <li>菜单2</li>
+      
     </ul>
-        <span class="toggleAside"></span>
+        <span v-if="toogleMenuButtonVisible" class="toggleAside">
+            <svg class="icon" >
+                <use xlink:href="#icon-menu"></use>
+            </svg>
+        </span>
   </div>
 </template>
 <script setup lang="ts">
 import { inject, Ref } from "@vue/runtime-core";
-
+const props = defineProps({
+  toogleMenuButtonVisible:{
+    type:Boolean,
+    default:false
+  }
+})
 const menuVisible = inject<Ref<boolean>>('menuVisible');
 const toggle = ()=>{
     if(menuVisible){
@@ -34,8 +46,12 @@ const toggle = ()=>{
   > .logo {
     max-width: 6em;
     margin-right: auto;
+    
   }
-  > .menu {
+    svg{
+      width: 32px;
+      height: 32px;
+    }  > .menu {
     display: flex;
     white-space: nowrap;
     flex-wrap: nowrap;
@@ -46,7 +62,6 @@ const toggle = ()=>{
   > .toggleAside {
     width: 24px;
     height: 24px;
-    background: red;
     position: absolute;
     left: 16px;
     top: 50%;
