@@ -6,7 +6,6 @@
   </div>
   <div class="gulu-tabs-content">
     
-
     <component :is="current" :key="current.props.title" />
         </div>
 
@@ -25,7 +24,7 @@ const props = defineProps({
 const emits = defineEmits([
   "update:selected"
 ])
-const selectedItem = ref<HTMLDivElement>(null)
+const selectedItem = ref(null)
 const indicator = ref<HTMLDivElement>(null)
 const container = ref<HTMLDivElement>(null)
 const current = computed(() => {
