@@ -2,6 +2,15 @@
  <div  class="layout">
     <Topnav toogleMenuButtonVisible class="nav" />    <div class="content">
        <aside v-if="menuVisible">
+         <h2>文档</h2>
+         <ol>
+           <li>
+             <router-link to="/doc/intro">介绍</router-link>   
+           </li>
+           <li>
+             <router-link to="/doc/get-started">开始</router-link>   
+           </li>
+         </ol>
         <h2>组件列表</h2>
         <ol>
           <li>
@@ -31,6 +40,12 @@ import Topnav from '../components/Topnav.vue'
 const menuVisible = inject<Ref<boolean>>('menuVisible');
 </script>
 <style lang="scss" scoped>
+a{
+  color: black;
+}
+a:hover{
+  background: lightblue;
+}
 .layout {
   display: flex;
   flex-direction: column;
