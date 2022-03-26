@@ -1,14 +1,12 @@
 <template>
   <div class="topnav" >
-    <div class="logo" @click="toggle">
+    <router-link to="/" class="logo" >
        <svg class="icon" >
         <use xlink:href="#icon-sport"></use>
     </svg>
-    </div>
-    <ul class="menu">
-      
-    </ul>
-        <span v-if="toogleMenuButtonVisible" class="toggleAside">
+    </router-link>
+    
+        <span @click="toggle" v-if="toogleMenuButtonVisible" class="toggleAside">
             <svg class="icon" >
                 <use xlink:href="#icon-menu"></use>
             </svg>
@@ -34,7 +32,8 @@ const toggle = ()=>{
 </script>
 <style lang="scss" scoped>
 .topnav {
-  background: pink;
+  background: white;
+  border-bottom: rgba(107, 106, 106, 0.1) solid 1px;
   display: flex;
   padding: 16px;
  position: fixed;
@@ -46,7 +45,7 @@ const toggle = ()=>{
   > .logo {
     max-width: 6em;
     margin-right: auto;
-    
+text-decoration:none;    
   }
     svg{
       width: 32px;

@@ -35,10 +35,10 @@ import Topnav from '../components/Topnav.vue'
   height: 100vh;
   position: relative;
   @media(max-width: 1820px){
-    background: linear-gradient(139deg, rgba(255,255,255,1) 0%, rgba(156,171,255,1) 53%, rgba(44,55,255,1) 100%);
+    background: white;
   }
   @media (max-width:576px){
-background: linear-gradient(133deg, rgba(255,255,255,1) 0%, rgba(156,201,255,1) 53%, rgba(44,219,255,1) 100%);
+background: white;
 
   }
 
