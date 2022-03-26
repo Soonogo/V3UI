@@ -43,7 +43,7 @@ const props = defineProps({
     },
     closeOnclickOverLay: {
         type: Boolean,
-        default: true
+        default: false
     }
 })
 const emits = defineEmits([
