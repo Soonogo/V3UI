@@ -4,47 +4,24 @@
   <div class="demo">
     <h2>常规用法</h2>
     <div class="demo-component">
-      <Switchdemo1/>
+      <Switch v-model:value="bool" />
     </div>
     <div class="demo-actions">
-      <Button>查看代码</Button>
+      <Button @click="toogle">查看代码</Button>
     </div>
-    <div class="demo-code">
-      <pre>&lt;Switch v-model:value="bool" /&gt;</pre>
-    </div>
-  </div>
-  <div class="demo">
-    <h2>支持 disabled </h2>
-    <div class="demo-component">
-      <Switchdemo2/>
-    </div>
-    <div class="demo-actions">
-      <Button>查看代码</Button>
-    </div>
-    <div class="demo-code">
-      <pre>&lt;Switch v-model:value="bool" disabled /&gt;</pre>
-    </div>
-  </div>
-</div>
-</template>
-
-<script lang="ts">
-import Switch from '../lib/switch1.vue'
-import Button from '../lib/button1.vue'
-import switchdemo1 from './switchdemo1.vue'
-import switchdemo2 from './switchdemo2.vue'
+    <div class="demo-code" v-if="x">
+      <pre>&lt;template&gt;
+    &lt;Switch v-model:value=&quot;bool&quot; /&gt;
+&lt;/template&gt;
+&lt;script lang=&quot;ts&quot;&gt;
+import Switch from '../lib/Switch.vue'
 import {
   ref
 } from 'vue'
-import Switchdemo1 from './switchdemo1.vue'
-import Switchdemo2 from './switchdemo2.vue'
 export default {
   components: {
     Switch,
-    Button,
-    Switchdemo1,
-    Switchdemo2
-},
+  },
   setup() {
     const bool = ref(false)
     return {
@@ -52,6 +29,57 @@ export default {
     }
   }
 }
+&lt;/script&gt;</pre>
+    </div>
+  </div>
+  <div class="demo">
+    <h2>支持 disabled </h2>
+    <div class="demo-component">
+      <Switch  disabled />
+    </div>
+    <div class="demo-actions">
+      <Button @click="toogle2">查看代码</Button>
+    </div>
+    <div class="demo-code" v-if="y">
+      <pre>&lt;template&gt;
+    &lt;Switch v-model:value=&quot;bool disabled&quot; /&gt;
+&lt;/template&gt;
+&lt;script lang=&quot;ts&quot;&gt;
+import Switch from '../lib/Switch.vue'
+import {
+  ref
+} from 'vue'
+export default {
+  components: {
+    Switch,
+  },
+  setup() {
+    const bool = ref(false)
+    return {
+      bool
+    }
+  }
+}
+&lt;/script&gt;</pre>
+    </div>
+  </div>
+</div>
+</template>
+
+<script lang="ts" setup>
+import Switch from '../lib/switch1.vue'
+import Button from '../lib/button1.vue'
+import {  ref } from 'vue'
+const bool = ref(false)
+const x = ref(false)
+const y = ref(false)
+const toogle=()=>{
+    x.value = !x.value
+}
+const toogle2=()=>{
+    y.value = !y.value
+}
+
 </script>
 
 <style lang="scss" scoped>
