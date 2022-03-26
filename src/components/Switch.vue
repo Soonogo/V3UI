@@ -34,10 +34,9 @@
 import Switch from '../lib/switch1.vue'
 import Button from '../lib/button1.vue'
 import SwitchDemo1 from './swi.vue'
-import 'prismjs/themes/prism-coy.css'
+import 'prismjs/themes/prism.css'
 import "prismjs"
 const Prism = (window as any).Prism
-console.log(window.Prism)
 import {  ref } from 'vue'
 const bool = ref(false)
 const x = ref(true)
@@ -52,7 +51,8 @@ const code1 = `
 import Switch from '../lib/switch1.vue'
 import { ref } from 'vue'
     const bool = ref(false)
-<script>
+<\/script>
+
 `
 const code2 = `
 <template>
@@ -62,7 +62,8 @@ const code2 = `
 import Switch from '../lib/switch1.vue'
 import { ref } from 'vue'
     const bool = ref(false)
-<script>
+<\/script>
+
 `
 
 
