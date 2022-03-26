@@ -10,26 +10,8 @@
       <Button @click="toogle">查看代码</Button>
     </div>
     <div class="demo-code" v-if="x">
-      <pre>&lt;template&gt;
-    &lt;Switch v-model:value=&quot;bool&quot; /&gt;
-&lt;/template&gt;
-&lt;script lang=&quot;ts&quot;&gt;
-import Switch from '../lib/Switch.vue'
-import {
-  ref
-} from 'vue'
-export default {
-  components: {
-    Switch,
-  },
-  setup() {
-    const bool = ref(false)
-    return {
-      bool
-    }
-  }
-}
-&lt;/script&gt;</pre>
+      <pre v-html="Prism.highlight(code1,Prism.languages.html,'html')"/>
+  
     </div>
   </div>
   <div class="demo">
@@ -41,26 +23,8 @@ export default {
       <Button @click="toogle2">查看代码</Button>
     </div>
     <div class="demo-code" v-if="y">
-      <pre>&lt;template&gt;
-    &lt;Switch v-model:value=&quot;bool disabled&quot; /&gt;
-&lt;/template&gt;
-&lt;script lang=&quot;ts&quot;&gt;
-import Switch from '../lib/Switch.vue'
-import {
-  ref
-} from 'vue'
-export default {
-  components: {
-    Switch,
-  },
-  setup() {
-    const bool = ref(false)
-    return {
-      bool
-    }
-  }
-}
-&lt;/script&gt;</pre>
+      <pre v-html="Prism.highlight(code2,Prism.languages.html,'html')"/>
+ 
     </div>
   </div>
 </div>
@@ -69,16 +33,38 @@ export default {
 <script lang="ts" setup>
 import Switch from '../lib/switch1.vue'
 import Button from '../lib/button1.vue'
+import SwitchDemo1 from './swi.vue'
+import 'prismjs/themes/prism-coy.css'
+import "prismjs"
+const Prism = (window as any).Prism
+console.log(window.Prism)
 import {  ref } from 'vue'
 const bool = ref(false)
-const x = ref(false)
+const x = ref(true)
 const y = ref(false)
-const toogle=()=>{
-    x.value = !x.value
-}
-const toogle2=()=>{
-    y.value = !y.value
-}
+const toogle=()=>{x.value = !x.value}
+const toogle2=()=>{y.value = !y.value}
+const code1 = `
+<template>
+<Switch v-model:value="bool" />
+</template>
+<script lang="ts" setup>
+import Switch from '../lib/switch1.vue'
+import { ref } from 'vue'
+    const bool = ref(false)
+<script>
+`
+const code2 = `
+<template>
+<Switch v-model:value="bool" disiabled />
+</template>
+<script lang="ts" setup>
+import Switch from '../lib/switch1.vue'
+import { ref } from 'vue'
+    const bool = ref(false)
+<script>
+`
+
 
 </script>
 
@@ -103,6 +89,7 @@ $border-color: #d9d9d9;
     padding: 8px 16px;
     border-top: 1px dashed $border-color;
     >pre {
+      background: rgb(226, 226, 226);
       line-height: 1.1;
       font-family: Consolas, 'Courier New', Courier, monospace;
       margin: 0;
