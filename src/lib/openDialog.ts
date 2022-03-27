@@ -24,4 +24,4 @@ const openDialog = (options)=>{
     app.mount(div);
 }
 
-export  default openDialog;
+export   {openDialog};

@@ -43,7 +43,7 @@
 import { ref } from "vue"
 import Dialog from "../lib/dialog1.vue"
 import Button from "../lib/button1.vue"
-import openDialog from "../lib/openDialog"
+import {openDialog} from "../lib/openDialog"
 import 'prismjs/themes/prism.css'
 import "prismjs"
 const Prism = (window as any).Prism
