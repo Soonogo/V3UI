@@ -74,7 +74,7 @@ background: white;
 background: linear-gradient(139deg, rgba(142,222,255,1) 0%, rgba(0,142,255,1) 100%);
       display: inline-block;
       $h: 28px;
-      $h2: span math.div($h,2);
+      $h2:  14px;
       height: $h;
       line-height: $h;
       border-radius: 14px;
