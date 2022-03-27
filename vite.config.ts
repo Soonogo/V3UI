@@ -9,6 +9,10 @@ export default {
   base:'./',
   assertsDir:'assets',
   plugins: [md(),vue()],
+  esbuild: {
+    jsxFactory: 'h',
+    jsxInject: `import React from 'react'`
+    },
   vueCustomBlockTransforms: {
     demo: (options) => {
       const { code, path } = options

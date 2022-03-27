@@ -4,6 +4,7 @@ import vue from 'rollup-plugin-vue'
 import scss from 'rollup-plugin-scss'
 import dartSass from 'sass';
 import { terser } from "rollup-plugin-terser"
+import jsx from 'rollup-plugin-jsx';
 
 export default {
   input: 'src/lib/index.ts',
@@ -11,10 +12,10 @@ export default {
     globals: {
       vue: 'Vue'
     },
-    name: 'Gulu',
-    file: 'dist/lib/gulu.js',
+    name: 'V3UI',
+    file: 'dist/lib/v3ui.js',
     format: 'umd',
-    plugins: [terser()]
+    plugins: [terser(),jsx()]
   },
   plugins: [
     scss({ include: /\.scss$/, sass: dartSass }),
