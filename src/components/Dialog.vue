@@ -150,6 +150,9 @@ $border-color: #d9d9d9;
   &-code {
     padding: 8px 16px;
     border-top: 1px dashed $border-color;
+     background: rgb(226, 226, 226);
+
+    overflow:auto;
     >pre {
       background: rgb(226, 226, 226);
       line-height: 1.1;

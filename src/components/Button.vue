@@ -178,11 +178,16 @@ h1{
   &-code {
     padding: 8px 1px;
     border-top: 1px dashed $border-color;
+      background: rgb(226, 226, 226);
+
+    overflow:auto;
+
     >pre {
       background: rgb(226, 226, 226);
       line-height: 1.1;
       font-family: Consolas, 'Courier New', Courier, monospace;
       margin: 0;
+
     }
   }
 }

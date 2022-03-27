@@ -21,7 +21,7 @@ export const router = createRouter({
             {path:'intro',component:Intro},
             {path:'get-started',component:getStarted},
 
-            {path:'',component:DocView},
+            {path:'',component:Intro},
             {path:'switch',component:Switch},
             {path:'button',component:Button},
             {path:'dialog',component:Dialog},

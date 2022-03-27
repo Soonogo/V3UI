@@ -42,6 +42,8 @@ const toggle = ()=>{
   width: 100%;  z-index: 10;
   justify-content: center;
   align-content: center;
+    box-shadow: 10px 0.5px 0.2px rgb(231, 231, 231);
+
   > .logo {
     max-width: 6em;
     margin-right: auto;
@@ -69,12 +71,15 @@ text-decoration:none;
   }
   @media (max-width: 768px) {
     > .menu {
+      
       display: none;
     }
     > .logo{
+      
       margin: 0 auto;
     }
     > .toggleAside {
+      
       display: inline-block ;
     }
   }
