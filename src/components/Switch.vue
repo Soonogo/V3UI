@@ -98,6 +98,6 @@ $border-color: #d9d9d9;
       font-family: Consolas, 'Courier New', Courier, monospace;
       margin: 0;
     }
-  }
+  } 
 }
 </style>
