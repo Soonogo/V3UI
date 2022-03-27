@@ -1,7 +1,8 @@
 {
-  "name": "V3UI",
-  "private": true,
-  "version": "0.0.0",
+  "name": "v3ui-v1",
+  "version": "0.0.1",
+  "files": [ "dist/lib/*"  ],
+  "main": "dist/lib/v3ui.js",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
